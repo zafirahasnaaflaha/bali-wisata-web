@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Web Map Wisata Pulau Bali</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #1a237e;
+  --secondary: #3949ab;
+  --accent: #ffca28;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  scroll-behavior: smooth;
+  background: #fafafa;
+}
+
+
+
+.highlight-paragraph {
+  background: rgba(238, 231, 231, 0.45);
+  padding: 14px 22px;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 800px;
+  line-height: 1.6;
+  backdrop-filter: blur(4px);
+}
+
+
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  padding-top: 70px;
+  color: #1a237e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+}
+
+/* SLIDER */
+.slider {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 0.35;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 25px;
+  background: var(--accent);
+  padding: 14px 30px;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ================= INFO ================= */
+.filter-info {
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.filter-info h3 {
+  margin-bottom: 10px;
+}
+
+.filter-info p {
+  max-width: 800px;
+  margin: auto;
+  color: #555;
+}
+
+/* ================= MAP ================= */
+#map-section {
+  height: 100vh;
+  padding-top: 70px;
+  background: #eaeaea;
+}
+
+iframe {
+  width: 100%;
+  height: calc(100vh - 70px);
+  border: none;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div><b>🌍 Web Map Wisata Bali</b></div>
+  <div>
+    <a href="#home">Beranda</a>
+    <a href="#map-section">Peta</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <!-- SLIDER -->
+  <div class="slider">
+  <img src="Assets/img/bali 1.jpg" class="slide active" alt="Bali 1">
+  <img src="Assets/img/bali 2.jpg" class="slide" alt="Bali 2">
+  <img src="Assets/img/bali 3.jpg" class="slide" alt="Bali 3">
+  <img src="Assets/img/bali 4.jpg" class="slide" alt="Bali 4">
+</div>
+ <!-- SLIDER -->
+
+
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+   <h1>
+  <span class="highlight">Peta Persebaran Objek Wisata </span>
+</h1>
+
+   <p class="highlight-paragraph">
+  Visualisasi persebaran objek wisata di Pulau Bali berdasarkan
+  kelas rating dan jenis wisata menggunakan Web GIS interaktif.
+</p>
+
+
+    <a href="#map-section">🗺️ Lihat Peta</a>
+  </div>
+
+</section>
+
+<!-- INFO -->
+<div class="filter-info">
+  <h3>🧭 Petunjuk Penggunaan</h3>
+  <p>
+    Gunakan <b>checkbox filter</b> di dalam peta untuk menampilkan
+    objek wisata berdasarkan <b>tipe wisata</b>.
+  </p>
+  <p>Klik marker untuk melihat informasi detail.</p>
+</div>
+
+<!-- MAP -->
+<section id="map-section">
+  <iframe src="C:/Users/LENOVO/Downloads/PROPAS/peta_folium.html"></iframe>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+ UAS PROPAS 2025 (Afla, Salma, Yasmin)
+</div>
+
+<!-- ================= JAVASCRIPT SLIDER ================= -->
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>
